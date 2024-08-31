@@ -14,17 +14,25 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        destinations: [
-          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.list_rounded), label: "Stock"),
-          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-        ],
-        selectedIndex: index,
-        elevation: 3,
-        onDestinationSelected: (value) => index = value,
-
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+        child: NavigationBar(
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home), label: "Dashboard"),
+            NavigationDestination(
+                icon: Icon(Icons.inventory), label: "Inventory"),
+            NavigationDestination(icon: Icon(Icons.book), label: "Released"),
+            NavigationDestination(
+                icon: Icon(Icons.auto_awesome_mosaic), label: "Export"),
+          ],
+          selectedIndex: index,
+          elevation: 3,
+          onDestinationSelected: (value) => setState(() {
+            index = value;
+          }),
+          backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
+        ),
       ),
       appBar: AppBar(
         title: const Text('Dashboard'),
@@ -44,18 +52,17 @@ class _DashboardState extends State<Dashboard> {
         crossAxisAlignment: CrossAxisAlignment.center,
         verticalDirection: VerticalDirection.down,
         children: [
-          Center(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 35,
-                ),
-                const TextDash(text: "Month of", fontsize: 20),
-                const TextDash(text: 'July', fontsize: 24),
-                const TextDash(text: "2024", fontsize: 16),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Column(
+          SafeArea(
+            child: Center(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  const TextDash(text: "Month of", fontsize: 20),
+                  const TextDash(text: 'July', fontsize: 24),
+                  const TextDash(text: "2024", fontsize: 16),
+                  Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -69,7 +76,7 @@ class _DashboardState extends State<Dashboard> {
                             paddingLeft: 25,
                           ),
                           Cardreport(
-                            icons: Icons.minimize,
+                            icons: Icons.remove,
                             itemCount: 2,
                             description: 'Released Items',
                             color: Colors.greenAccent,
@@ -77,33 +84,30 @@ class _DashboardState extends State<Dashboard> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Cardreport(
-                              icons: Icons.backpack,
-                              itemCount: 106,
-                              description: 'Total Stock',
-                              color: Colors.purpleAccent.shade100,
-                              fontColor: Colors.white,
-                              paddingLeft: 25,
-                            ),
-                            Cardreport(
-                              icons: Icons.cases,
-                              itemCount: 36,
-                              description: 'Total Transaction',
-                              color: Colors.lightGreenAccent.shade400,
-                              paddingLeft: 15,
-                            )
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Cardreport(
+                            icons: Icons.storage,
+                            itemCount: 106,
+                            description: 'Total Stock',
+                            color: Colors.purpleAccent.shade100,
+                            fontColor: Colors.white,
+                            paddingLeft: 25,
+                          ),
+                          Cardreport(
+                            icons: Icons.compare,
+                            itemCount: 36,
+                            description: 'Total Transaction',
+                            color: Colors.lightGreenAccent.shade400,
+                            paddingLeft: 15,
+                          )
+                        ],
                       )
                     ],
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           )
         ],
