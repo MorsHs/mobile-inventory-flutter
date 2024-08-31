@@ -65,7 +65,7 @@ class _DashboardState extends State<Dashboard> {
                   Column(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Cardreport(
                             icons: Icons.add,
@@ -85,7 +85,7 @@ class _DashboardState extends State<Dashboard> {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Cardreport(
                             icons: Icons.storage,
@@ -109,6 +109,34 @@ class _DashboardState extends State<Dashboard> {
                 ],
               ),
             ),
+          )
+        ],
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => null,
+            child: Icon(
+              Icons.add,
+              color: Colors.green,
+            ),
+            backgroundColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            elevation: 10,
+          ),
+          SizedBox(height: 20,),
+          FloatingActionButton(
+            onPressed: () => null,
+            child: Icon(
+              Icons.remove,
+              color: Colors.red,
+            ),
+            backgroundColor: Colors.white,
+            shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            elevation: 10,
           )
         ],
       ),
