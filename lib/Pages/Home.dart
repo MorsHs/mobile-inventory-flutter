@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inventory/CustomFloatingButton.dart';
+import 'package:flutter_inventory/Custom/CustomFloatingButton.dart';
 import 'package:flutter_inventory/Pages/Dashboard.dart';
 import 'package:flutter_inventory/Pages/Inventory.dart';
 import 'package:flutter_inventory/Pages/Item%20Catalog.dart';
