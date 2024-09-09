@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inventory/CustomFloatingButton.dart';
 import 'package:flutter_inventory/Pages/Dashboard.dart';
 import 'package:flutter_inventory/Pages/Inventory.dart';
 import 'package:flutter_inventory/Pages/Item%20Catalog.dart';
@@ -12,7 +13,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int index = 0;
-  Widget screens  = Dashboard();
+  Widget screens = Dashboard();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,11 @@ class _HomeState extends State<Home> {
             NavigationDestination(icon: Icon(Icons.home), label: "Dashboard"),
             NavigationDestination(
                 icon: Icon(Icons.inventory), label: "Inventory"),
-            NavigationDestination(icon: Icon(Icons.book,), label: "Catalog"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.book,
+                ),
+                label: "Catalog"),
             NavigationDestination(
                 icon: Icon(Icons.auto_awesome_mosaic), label: "Export"),
           ],
@@ -34,7 +39,7 @@ class _HomeState extends State<Home> {
             index = value;
             switch (index) {
               case 0:
-               screens =  const Dashboard();
+                screens = const Dashboard();
                 break;
               case 1:
                 screens = const Inventory();
@@ -46,11 +51,8 @@ class _HomeState extends State<Home> {
           backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         ),
       ),
-
-
-
       appBar: AppBar(
-        title:  Text(screens.runtimeType.toString()   ),
+        title: Text(screens.runtimeType.toString()),
         elevation: 3,
         backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         titleSpacing: 30,
@@ -62,39 +64,17 @@ class _HomeState extends State<Home> {
             fontSize: 24,
             fontWeight: FontWeight.bold),
       ),
-
-
-      floatingActionButton: Column(
+      floatingActionButton: const Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: () => null,
-            backgroundColor: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            elevation: 10,
-            child: const Icon(
-              Icons.add,
-              color: Colors.green,
-            ),
+          Customfloatingbutton(iconData: Icons.add, color: Colors.green),
+          SizedBox(
+            height: 15,
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          FloatingActionButton(
-            onPressed: () => null,
-            backgroundColor: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            elevation: 10,
-            child: const Icon(
-              Icons.remove,
-              color: Colors.red,
-            ),
-          )
+          Customfloatingbutton(iconData: Icons.remove, color: Colors.red)
         ],
       ),
-body: screens,
+      body: screens,
     );
   }
 }
