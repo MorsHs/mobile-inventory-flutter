@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inventory/Pages/Dashboard.dart';
+import 'package:flutter_inventory/Pages/Inventory.dart';
+import 'package:flutter_inventory/Pages/Item%20Catalog.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int index = 0;
-  Widget dashboard  = Dashboard();
+  Widget screens  = Dashboard();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _HomeState extends State<Home> {
             NavigationDestination(icon: Icon(Icons.home), label: "Dashboard"),
             NavigationDestination(
                 icon: Icon(Icons.inventory), label: "Inventory"),
-            NavigationDestination(icon: Icon(Icons.book,), label: "Released"),
+            NavigationDestination(icon: Icon(Icons.book,), label: "Catalog"),
             NavigationDestination(
                 icon: Icon(Icons.auto_awesome_mosaic), label: "Export"),
           ],
@@ -30,7 +32,16 @@ class _HomeState extends State<Home> {
           elevation: 3,
           onDestinationSelected: (value) => setState(() {
             index = value;
-            switch (index) {}
+            switch (index) {
+              case 0:
+               screens =  const Dashboard();
+                break;
+              case 1:
+                screens = const Inventory();
+                break;
+              case 2:
+                screens = const Catalog();
+            }
           }),
           backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         ),
@@ -39,7 +50,7 @@ class _HomeState extends State<Home> {
 
 
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title:  Text(screens.runtimeType.toString()   ),
         elevation: 3,
         backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         titleSpacing: 30,
@@ -83,7 +94,7 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-body: dashboard,
+body: screens,
     );
   }
 }
