@@ -23,15 +23,9 @@ class _HomeState extends State<Home> {
         child: NavigationBar(
           destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: "Dashboard"),
-            NavigationDestination(
-                icon: Icon(Icons.inventory), label: "Inventory"),
-            NavigationDestination(
-                icon: Icon(
-                  Icons.book,
-                ),
-                label: "Catalog"),
-            NavigationDestination(
-                icon: Icon(Icons.auto_awesome_mosaic), label: "Export"),
+            NavigationDestination(icon: Icon(Icons.inventory), label: "Inventory"),
+            NavigationDestination(icon: Icon(Icons.book,), label: "Catalog"),
+            NavigationDestination(icon: Icon(Icons.auto_awesome_mosaic), label: "Export"),
           ],
           selectedIndex: index,
           elevation: 3,
