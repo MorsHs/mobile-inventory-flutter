@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inventory/Custom/CustomFloatingButton.dart';
-import 'package:flutter_inventory/Pages/Dashboard.dart';
-import 'package:flutter_inventory/Pages/Inventory.dart';
-import 'package:flutter_inventory/Pages/Item%20Catalog.dart';
+import 'package:go_router/go_router.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+   final Widget child;
+   const Home({super.key,required this.child});
 
   @override
   State<Home> createState() => _HomeState();
@@ -13,7 +12,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int index = 0;
-  Widget screens = Dashboard();
+  late String name;
+  @override
+  void initState() {
+    name = 'Dashboard';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +38,25 @@ class _HomeState extends State<Home> {
             index = value;
             switch (index) {
               case 0:
-                screens = const Dashboard();
+                context.go('/');
+                name = 'Dashboard';
                 break;
               case 1:
-                screens = const Inventory();
+                context.go('/inventory');
+                name = 'Inventory';
                 break;
               case 2:
-                screens = const Catalog();
+                context.go('/catalog');
+                name = 'Catalog';
+                break;
+
             }
           }),
           backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         ),
       ),
       appBar: AppBar(
-        title: Text(screens.runtimeType.toString()),
+        title: Text(name),
         elevation: 3,
         backgroundColor: const Color.fromRGBO(247, 214, 133, 1.0),
         titleSpacing: 30,
@@ -61,14 +71,16 @@ class _HomeState extends State<Home> {
       floatingActionButton: const Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Customfloatingbutton(iconData: Icons.add, color: Colors.green),
+          Customfloatingbutton(iconData: Icons.add, color: Colors.green,route: 'sd',),
           SizedBox(
             height: 15,
           ),
-          Customfloatingbutton(iconData: Icons.remove, color: Colors.red)
+          Customfloatingbutton(iconData: Icons.remove, color: Colors.red,route: 'sd',)
         ],
       ),
-      body: screens,
+      body:widget.child,
     );
   }
+
+
 }
