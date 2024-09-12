@@ -55,6 +55,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+// Helper methods
 CustomTransitionPage _noAnimation({
   required BuildContext context,
   required GoRouterState state,
