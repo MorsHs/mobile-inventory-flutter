@@ -41,18 +41,19 @@ class _CatalogState extends State<Catalog> {
                       DataColumn(label: Text('PO NO.')),
                       DataColumn(label: Text('PR NO.')),
                       DataColumn(label: Text('ICS NO.')),
-                    ], rows: [
-                    DataRow(cells: [
-                      DataCell(Text("AntiVirus")),
-                      DataCell(Text("15")),
-                      DataCell(Text("16357")),
-                      DataCell(Text("85564")),
-                      DataCell(Text("77885")),
-                    ]),
-      
-                  ],),
+                    ], rows: List<DataRow>.generate(
+                    100,(index) => DataRow(cells: [
+                    DataCell(Text("AntiVirus")),
+                    DataCell(Text("15")),
+                    DataCell(Text("16357")),
+                    DataCell(Text("85564")),
+                    DataCell(Text("77885")),
+                  ],
+                  ),
+                  ),
                 ),
-                ]),
+                )],
+            ),
           )
         ],
       ),
