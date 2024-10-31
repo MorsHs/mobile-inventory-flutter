@@ -32,26 +32,28 @@ class _CatalogState extends State<Catalog> {
           Expanded(
             child: ListView(
                 padding: EdgeInsets.only(left: 30,right: 30),
-                children:[ SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    columns: [
-                      DataColumn(label: Text('Item Name')),
-                      DataColumn(label: Text('Quantity')),
-                      DataColumn(label: Text('PO NO.')),
-                      DataColumn(label: Text('PR NO.')),
-                      DataColumn(label: Text('ICS NO.')),
-                    ], rows: List<DataRow>.generate(
-                    100,(index) => DataRow(cells: [
-                    DataCell(Text("AntiVirus")),
-                    DataCell(Text("15")),
-                    DataCell(Text("16357")),
-                    DataCell(Text("85564")),
-                    DataCell(Text("77885")),
-                  ],
+                children:[ Center(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                      columns: [
+                        DataColumn(label: Text('Item Name')),
+                        DataColumn(label: Text('Quantity')),
+                        DataColumn(label: Text('PO NO.')),
+                        DataColumn(label: Text('PR NO.')),
+                        DataColumn(label: Text('ICS NO.')),
+                      ], rows: List<DataRow>.generate(
+                      100,(index) => DataRow(cells: [
+                      DataCell(Text("AntiVirus")),
+                      DataCell(Text("15")),
+                      DataCell(Text("16357")),
+                      DataCell(Text("85564")),
+                      DataCell(Text("77885")),
+                    ],
+                    ),
+                    ),
                   ),
                   ),
-                ),
                 )],
             ),
           )

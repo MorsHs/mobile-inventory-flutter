@@ -33,22 +33,25 @@ class _InventoryState extends State<Inventory> {
               Expanded(
                 child: ListView(
                   padding: EdgeInsets.only(left: 30,right: 30),
-                  children:[ SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    columns: [
-                    DataColumn(label: Text('Item Code')),
-                    DataColumn(label: Text('Item Name')),
-                    DataColumn(label: Text('Stock')),
-                  ], rows: [
-                    DataRow(cells: [
-                      DataCell(Text("0321")),
-                      DataCell(Text("Antivirus")),
-                      DataCell(Text("5")),
-                    ]),
+                  children:[
+                    Center(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                    child: DataTable(
+                      columns: [
+                      DataColumn(label: Text('Item Code')),
+                      DataColumn(label: Text('Item Name')),
+                      DataColumn(label: Text('Stock')),
+                    ], rows: [
+                      DataRow(cells: [
+                        DataCell(Text("0321")),
+                        DataCell(Text("Antivirus")),
+                        DataCell(Text("5")),
+                      ]),
 
-                  ],),
-                          ),
+                    ],),
+                            ),
+                  ),
                   ]),
               )
           ],
