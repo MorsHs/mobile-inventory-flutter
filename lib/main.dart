@@ -27,19 +27,19 @@ class _MyAppState extends State<MyApp> {
             GoRoute(
               name: 'Dashboard',
                 path: '/',
-                builder: (context, state) => Dashboard(),
+                builder: (context, state) => const Dashboard(),
               pageBuilder: (context, state) => _noAnimation(context: context, state: state, child: Dashboard()),
             ),
             GoRoute(
               name: 'Inventory',
               path: '/inventory',
-              builder: (context, state) => Inventory(),
+              builder: (context, state) => const Inventory(),
               pageBuilder: (context, state) => _noAnimation(context: context, state: state, child: Inventory()),
             ),
             GoRoute(
               name: 'Catalog',
               path: '/catalog',
-              builder: (context, state) => Catalog(),
+              builder: (context, state) => const Catalog(),
               pageBuilder: (context, state) => _noAnimation(context: context, state: state, child: Catalog()),
             ),
 

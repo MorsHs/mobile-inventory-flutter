@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inventory/Custom/CustomizedDataTable.dart';
 
 class Catalog extends StatefulWidget {
   const Catalog({super.key});
@@ -15,10 +16,11 @@ class _CatalogState extends State<Catalog> {
         children: [
           SizedBox(height: 30),
           Container(
-            padding: EdgeInsets.only(left: 20,right: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: SearchBar(
               hintText: 'Item Search',
-              leading: IconButton(onPressed: () => null, icon: Icon(Icons.list)),
+              leading:
+                  IconButton(onPressed: () => null, icon: Icon(Icons.list)),
               trailing: const [
                 Padding(
                   padding: EdgeInsets.only(right: 15),
@@ -27,34 +29,14 @@ class _CatalogState extends State<Catalog> {
               ],
             ),
           ),
-          const SizedBox(height: 15,),
-          const Divider(indent: 20,endIndent: 20,),
-          Expanded(
-            child: ListView(
-                padding: EdgeInsets.only(left: 30,right: 30),
-                children:[ SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    columns: [
-                      DataColumn(label: Text('Item Name')),
-                      DataColumn(label: Text('Quantity')),
-                      DataColumn(label: Text('PO NO.')),
-                      DataColumn(label: Text('PR NO.')),
-                      DataColumn(label: Text('ICS NO.')),
-                    ], rows: List<DataRow>.generate(
-                    100,(index) => DataRow(cells: [
-                    DataCell(Text("AntiVirus")),
-                    DataCell(Text("15")),
-                    DataCell(Text("16357")),
-                    DataCell(Text("85564")),
-                    DataCell(Text("77885")),
-                  ],
-                  ),
-                  ),
-                ),
-                )],
-            ),
-          )
+          const SizedBox(
+            height: 15,
+          ),
+          const Divider(
+            indent: 20,
+            endIndent: 20,
+          ),
+           Customizeddatatable(type: 1)
         ],
       ),
     );
