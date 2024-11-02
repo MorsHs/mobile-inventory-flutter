@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_inventory/Custom/CustomizedDataTable.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});
@@ -14,9 +16,9 @@ class _InventoryState extends State<Inventory> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.only(left: 20,right: 20),
+              padding: const EdgeInsets.only(left: 20,right: 20),
               child: SearchBar(
                 hintText: 'Item Search',
                 leading: IconButton(onPressed: () => null, icon: Icon(Icons.list)),
@@ -30,33 +32,12 @@ class _InventoryState extends State<Inventory> {
               ),
             const SizedBox(height: 15,),
             const Divider(indent: 20,endIndent: 20,),
-              Expanded(
-                child: ListView(
-                  padding: EdgeInsets.only(left: 30,right: 30),
-                  children:[
-                    Center(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                    child: DataTable(
-                      columns: [
-                      DataColumn(label: Text('Item Code')),
-                      DataColumn(label: Text('Item Name')),
-                      DataColumn(label: Text('Stock')),
-                    ], rows: [
-                      DataRow(cells: [
-                        DataCell(Text("0321")),
-                        DataCell(Text("Antivirus")),
-                        DataCell(Text("5")),
-                      ]),
+           const Customizeddatatable(type: 0)
 
-                    ],),
-                            ),
-                  ),
-                  ]),
-              )
           ],
         ),
       ),
     );
   }
 }
+
