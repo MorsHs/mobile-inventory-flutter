@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_inventory/Custom/CustomizedDataTable.dart';
+import 'package:flutter_inventory/presentation/widgets/CustomizedDataTable.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../widgets/CardReport.dart';
+import '../widgets/DashText.dart';
 
-import '../Custom/CardReport.dart';
-import '../Custom/DashText.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});

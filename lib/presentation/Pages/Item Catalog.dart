@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inventory/Custom/CustomizedDataTable.dart';
+
+import '../widgets/CustomizedDataTable.dart';
 
 class Catalog extends StatefulWidget {
   const Catalog({super.key});

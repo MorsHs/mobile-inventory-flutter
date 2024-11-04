@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inventory/Custom/CustomFloatingButton.dart';
+import 'package:flutter_inventory/presentation/widgets/CustomFloatingButton.dart';
 import 'package:go_router/go_router.dart';
 
 class Home extends StatefulWidget {

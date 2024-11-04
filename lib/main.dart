@@ -1,11 +1,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_inventory/Pages/Dashboard.dart';
-import 'package:flutter_inventory/Pages/Inventory.dart';
-import 'package:flutter_inventory/Pages/Item%20Catalog.dart';
-import 'Pages/Home.dart';
+import 'package:flutter_inventory/presentation/Pages/Dashboard.dart';
+import 'package:flutter_inventory/presentation/Pages/Home.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:go_router/go_router.dart';
+
+import 'presentation/Pages/Inventory.dart';
+import 'presentation/Pages/Item Catalog.dart';
 void main() {
   runApp(const MyApp());
 
